@@ -33,5 +33,11 @@
                 "DesignMyNight\\Laravel\\Horizon\\HorizonServiceProvider"
             ]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/designmynight/laravel-horizon-rabbitmq"
+        }
+    ],
 }
