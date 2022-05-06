@@ -1,5 +1,5 @@
 {
-    "name": "designmynight/laravel-horizon-rabbitmq",
+    "name": "chameleon2die4/laravel-horizon-rabbitmq",
     "description": "A package to support horizon with RabbitMQ",
     "homepage": "https://github.com/designmynight/laravel-horizon-rabbitmq",
     "license": "MIT",
