@@ -10,6 +10,12 @@
         "rabbitmq",
         "designmynight"
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/designmynight/laravel-horizon-rabbitmq"
+        }
+    ],
     "require": {
         "illuminate/support": "^8.17|^9.0",
         "laravel/horizon": "^1.4 || ^2.0 || ^3.0",
@@ -33,11 +39,5 @@
                 "DesignMyNight\\Laravel\\Horizon\\HorizonServiceProvider"
             ]
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/designmynight/laravel-horizon-rabbitmq"
-        }
-    ],
+    }
 }
