@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Laravel\Horizon\Events\JobDeleted;
 use Laravel\Horizon\Events\JobPushed;
 use Laravel\Horizon\Events\JobReserved;
-use Laravel\Horizon\JobId;
 use Laravel\Horizon\JobPayload;
 use VladimirYuldashev\LaravelQueueRabbitMQ\Queue\RabbitMQQueue as BaseQueue;
 
@@ -119,7 +118,7 @@ class RabbitMQQueue extends BaseQueue
             $queue = Str::replaceFirst('queues:', '', $queue);
 
             $this->container->make(Dispatcher::class)->dispatch(
-                $event->connection($this->getConnectionName())->queue($queue)
+              $event->connection($this->getConnectionName())->queue($queue)
             );
         }
     }
@@ -132,11 +131,11 @@ class RabbitMQQueue extends BaseQueue
      * @param  mixed   $data
      * @return string
      */
-    protected function createPayloadArray($job, $queue, $data = '')
+    protected function createPayloadArray($job, $queue, $data = ''): array
     {
         return array_merge(parent::createPayloadArray($job, $queue, $data), [
-            'id' => $this->getRandomId(),
-            'attempts' => 0,
+          'id' => $this->getRandomId(),
+          'attempts' => 0,
         ]);
     }
 
@@ -158,18 +157,18 @@ class RabbitMQQueue extends BaseQueue
      * @param string|null $queue
      * @return string
      */
-    protected function getQueue($queue = null): string
+    public function getQueue($queue = null): string
     {
-        return $queue ?: $this->queueName;
+        return $queue ?: $this->default;
     }
 
-    /**
-     * Get a random ID string.
-     *
-     * @return string
-     */
-    protected function getRandomId()
-    {
-        return JobId::generate();
-    }
+//    /**
+//     * Get a random ID string.
+//     *
+//     * @return string
+//     */
+//    protected function getRandomId(): string
+//    {
+//        return Str::uuid();
+//    }
 }
